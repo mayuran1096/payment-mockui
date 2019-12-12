@@ -2,42 +2,24 @@ import React from 'react';
 
 import Payment from './payment/Payment';
 import PaymentLoading from './payment/PaymentLoading'
-import { BrowserRouter as Router,Switch } from 'react-router-dom';
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
+import PaymentForm from './payment/CardForm'
 
 
 
 class WallSlate extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        return <React.Fragment>
-            {/* <Router>
+        return (
+            <>
                 <Switch>
-                    <Route path={'/'} exact component={Payment} />
-                    <Route path={'/pay'} component={PaymentLoading} />
-
+                    <Route exact path={'/'} component={Payment} />
+                    <Route exact path={'/payment'} component={PaymentLoading} />
                 </Switch>
 
 
-
-
-            </Router> */}
-            <Router>
-                <Switch>
-                <Route path={'/'} exact  component={Payment}/>
-                <Route path={'/payment'}  component={PaymentLoading}/>
-                </Switch>
-               
-
-            </Router>
-
-            
-
-
-        </React.Fragment>;
+            </>
+        );
     }
 }
 export default WallSlate;
+

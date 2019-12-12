@@ -2,7 +2,9 @@ import React from 'react';
 import "../../../Assets/CSS/ws_test_configuration.css";
 import { Card, Col, Row, Button, message, Icon, Input, DatePicker } from "antd";
 import moment from 'moment';
+import {Link} from 'react-router-dom'
 const dateFormat = 'YYYY/MM/DD';
+
 
 
 
@@ -26,23 +28,23 @@ class Payment extends React.Component {
     handleNameChange = (event) => {
         this.setState({
             name: event.target.value
-            
 
-        },()=>{
+
+        }, () => {
             console.log(this.state.name)
         })
     }
-    handleNumberChange = (event)=>{
+    handleNumberChange = (event) => {
         this.setState({
-            number:event.target.value
-        },()=>{
+            number: event.target.value
+        }, () => {
             console.log(this.state.number)
         })
     }
-    handleCsvChange = (event)=>{
+    handleCsvChange = (event) => {
         this.setState({
-            csv:event.target.value
-        },()=>{
+            csv: event.target.value
+        }, () => {
             console.log(this.state.csv)
         })
     }
@@ -56,8 +58,8 @@ class Payment extends React.Component {
                 <Row>
                     <Col span={24}>
                         <div style={{ background: '#ECECEC', padding: '30px' }}>
-                            <Card title="Payment Details" bordered={false} className="ws_top_row"  >
-                                <p>Insert Transaction Details</p>
+                            <Card title="Payment Details" bordered={false} className="ws_top_row" style={{ width: '75rem' }} >
+                                <h2><b>Insert Transaction Details</b></h2>
                                 <Row>
                                     <Col span={12}><p>Input your name :</p></Col>
                                     <Col span={12}> <Input value={this.state.name} onChange={this.handleNameChange} placeholder="card holder name" /></Col>
@@ -65,7 +67,7 @@ class Payment extends React.Component {
                                 <br />
                                 <Row>
                                     <Col span={12}>Card number :</Col>
-                                    <Col span={12}><Input placeholder="xxxx-xxxx-xxxx-xxxx" value={this.state.number} onChange={this.handleNumberChange}  /> </Col>
+                                    <Col span={12}><Input placeholder="xxxx-xxxx-xxxx-xxxx" value={this.state.number} onChange={this.handleNumberChange} /> </Col>
                                 </Row>
                                 <br />
                                 <Row>
@@ -75,14 +77,14 @@ class Payment extends React.Component {
                                 <br />
                                 <Row>
                                     <Col span={12}>Csv :</Col>
-                                    <Col span={12}>  <Input placeholder="xxx"  value={this.state.csv} onChange={this.handleCsvChange} /> </Col>
+                                    <Col span={12}>  <Input placeholder="xxx" value={this.state.csv} onChange={this.handleCsvChange} /> </Col>
                                 </Row>
                                 <br /><br /><br />
                                 <Row>
                                     <Col span={6}></Col>
                                     <Col span={6}></Col>
                                     <Col span={6}></Col>
-                                    <Col span={6}><Button type="primary" block>Proceed to payment</Button></Col>
+                                    <Col span={6}><Link to="/payment"><Button type="primary" block>Proceed payment</Button></Link></Col>
 
                                 </Row>
 
