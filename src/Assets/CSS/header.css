@@ -1,0 +1,21 @@
+.header_height_override{
+    height: 50px;
+}
+ant-layout-header{
+    padding: 0px 0px;
+}
+.Navbar{
+    text-align: left;
+}
+
+.ant-menu-submenu-title {
+    padding: 0px 0px;
+}
+.signin-icon{
+    height: 50px !important;
+}
+.ant-menu-item floatRight signin-icon{
+    display: flex;
+    /*align-content: center!important;*/
+    align-items: center!important;
+}
