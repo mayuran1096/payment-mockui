@@ -1,46 +1,57 @@
-import React from 'react';
-import Cards from 'react-credit-cards';
- 
-export default class PaymentForm extends React.Component {
-  state = {
-    cvc: '',
-    expiry: '',
-    focus: '',
-    name: '',
-    number: '',
-  };
- 
-  handleInputFocus = (e) => {
-    this.setState({ focus: e.target.name });
+import React, { Component } from 'react'
+import CreditCardInput from 'react-credit-card-input';
+
+export class CardForm extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cardNumber: '',
+      expiry: '',
+      cvc: ''
+
+    }
   }
-  
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    
-    this.setState({ [name]: value });
+  handleCardNumberChange = (event) => {
+    this.setState({
+      cardNumber: event.target.value
+    }, () => {
+      console.log(this.state.cardNumber)
+    })
   }
-  
+  handleCardExpiryChange = (event) => {
+    this.setState({
+      expiry: event.target.value
+    }, () => {
+      console.log(this.state.expiry)
+    })
+  }
+  handleCardCVCChange = (event) => {
+    this.setState({
+      cvc: event.target.value
+    }, () => {
+      console.log(this.state.cvc)
+    })
+  }
   render() {
     return (
-      <div id="PaymentForm">
-        <Cards
-          cvc={this.state.cvc}
-          expiry={this.state.expiry}
-          focus={this.state.focus}
-          name={this.state.name}
-          number={this.state.number}
-        />
-        <form>
-        	<input
-            type="tel"
-            name="number"
-            placeholder="Card Number"
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
-          />
-          ...
-        </form>
+      <div>
+         <CreditCardInput
+        cardNumberInputProps={{ value: this.state.cardNumber, onChange: this.handleCardNumberChange }}
+        cardExpiryInputProps={{ value: this.state.expiry, onChange: this.handleCardExpiryChange }}
+        cardCVCInputProps={{ value: this.state.cvc, onChange: this.handleCardCVCChange }}
+        fieldClassName="input"
+
+      />
+      {/* <Input value={this.state.name} onChange={this.handleNameChange} placeholder="card holder name" /> */}
       </div>
-    );
+     
+
+
+
+
+    )
   }
 }
+
+export default CardForm
